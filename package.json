@@ -1,0 +1,64 @@
+{
+  "name": "@pixi-wallet/ucan-plugin",
+  "version": "1.1.2",
+  "description": "template for ts projects with ci/cd",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "test": "jest",
+    "build": "npx tsc",
+    "semantic-release": "semantic-release"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/.history/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/pixi-wallet/ucan-plugin.git"
+  },
+  "keywords": [
+    "ci",
+    "cd",
+    "ts",
+    "registry"
+  ],
+  "author": "maksim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/pixi-wallet/ucan-plugin/issues"
+  },
+  "homepage": "https://gitlab.com/pixi-wallet/ucan-plugin#readme",
+  "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/gitlab": "^9.4.1",
+    "@semantic-release/npm": "^9.0.1",
+    "@types/jest": "^29.0.0",
+    "jest": "^28.1.3",
+    "semantic-release": "^19.0.5",
+    "ts-jest": "^28.0.8",
+    "typescript": "^4.8.2"
+  },
+  "publishConfig": {
+    "@pixi-wallet:registry": " https://gitlab.com/api/v4/projects/44901862/packages/npm/"
+  },
+  "dependencies": {
+    "@transmute/universal-wallet": "^0.7.0-unstable.51",
+    "@ucans/ucans": "^0.11.4"
+  }
+}
