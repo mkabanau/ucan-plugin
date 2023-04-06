@@ -41,7 +41,7 @@ configure .npmrc as in .npmrc-exmples
 
 check that package can be accessed
 ```
-npm install @pixie-wallet/ci-cd-template@latest
+npm install @pixie-wallet/ucan-plugin@latest
 ```
 ## CI/CD for package builds
 [follow original gitlab intstructions for more info][3]
