@@ -1,6 +1,6 @@
 {
   "name": "@pixi-wallet/ucan-plugin",
-  "version": "1.1.2",
+  "version": "0.0.3",
   "description": "template for ts projects with ci/cd",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

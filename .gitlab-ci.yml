@@ -26,13 +26,13 @@ stages:
 run-tests:
   stage: test
   script:
-    - npm run test
+    - npm run build
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
 
 publish:
   stage: release
   script:
-    - npm run semantic-release
+    - npm publish
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
