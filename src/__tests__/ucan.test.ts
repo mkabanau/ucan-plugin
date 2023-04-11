@@ -1,5 +1,5 @@
 
-import { capabilityWithExternalKeyPair, capabilityWithExternalSignFunc } from "../index"
+import { Ucan } from "../index"
 
 import * as ucans from "@ucans/ucans"
 
@@ -22,17 +22,17 @@ const toSign = {
 }
 
 describe("explore ucans", () => {
-
+    const ucan = new Ucan()
     test("create ucan capability with keypair", async () => {
         const keypair = await ucans.EdKeypair.create({ exportable: true })
-        const token = await capabilityWithExternalKeyPair(keypair, toSign)
+        const token = await ucan.capabilityWithExternalKeyPair(keypair, toSign)
         console.log(token)
         expect(token).not.toBeFalsy()
     })
 
     test("create ucan capability with sign func", async () => {
         const keypair = await ucans.EdKeypair.create({ exportable: true })
-        const token = await capabilityWithExternalSignFunc(keypair, toSign)
+        const token = await ucan.capabilityWithExternalSignFunc(keypair, toSign)
         console.log(token)
         expect(token).not.toBeFalsy()
     })
@@ -54,6 +54,7 @@ class Wallet {
     private store: ucans.StoreI
     constructor() {
         this.keystorage = new Map<string, string>()
+        this.ucan = new Ucan()
     }
     static async Init(): Promise<Wallet> {
         const wallet = new Wallet()
@@ -76,7 +77,7 @@ class Wallet {
             throw Error(`secret key is not found for ${iss}`)
         }
         const keypair = ucans.EdKeypair.fromSecretKey(secret)
-        const token = await capabilityWithExternalKeyPair(keypair, payload)
+        const token = await this.ucan.capabilityWithExternalKeyPair(keypair, payload)
         //this.store.add(ucans.parse(token))
         return token
     }

@@ -1,6 +1,6 @@
 import * as Factory from "factory.ts";
 
-import {capabilityWithExternalKeyPair, verify, capabilityWithExternalSignFunc} from './functions'
+import {Ucan} from './functions'
 
 export * from './functions'
 
@@ -10,10 +10,11 @@ interface UCANPlugin {
   ucanFunc: (keypair:any, payload:any) => Promise<string>
 }
 
+const ucan = new Ucan()
 const factoryDefaults = {
-  ucan: capabilityWithExternalKeyPair,
-  verify,
-  ucanFunc: capabilityWithExternalSignFunc
+  ucan: ucan.capabilityWithExternalKeyPair,
+  verify: ucan.verify,
+  ucanFunc: ucan.capabilityWithExternalSignFunc
 };
 
 const pluginFactory = Factory.Sync.makeFactory<UCANPlugin>(factoryDefaults);
