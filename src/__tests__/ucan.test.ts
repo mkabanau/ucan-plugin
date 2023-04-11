@@ -1,7 +1,7 @@
-import { capability, capabilityWithExternalSign } from "../index"
+
+import { capabilityWithExternalKeyPair, capabilityWithExternalSignFunc } from "../index"
 
 import * as ucans from "@ucans/ucans"
-
 
 const toSign = {
     audience: "did:key:zabcde...", // recipient DID
@@ -23,18 +23,27 @@ const toSign = {
 
 describe("explore ucans", () => {
 
-    test("create ucan capability", async () => {
-        const token = await capability()
+    test("create ucan capability with keypair", async () => {
+        const keypair = await ucans.EdKeypair.create({ exportable: true })
+        const token = await capabilityWithExternalKeyPair(keypair, toSign)
         console.log(token)
         expect(token).not.toBeFalsy()
     })
 
-    test("create ucan capability", async () => {
+    test("create ucan capability with sign func", async () => {
         const keypair = await ucans.EdKeypair.create({ exportable: true })
-        const token = await capabilityWithExternalSign(keypair, toSign)
+        const token = await capabilityWithExternalSignFunc(keypair, toSign)
         console.log(token)
         expect(token).not.toBeFalsy()
     })
+
+    // test("create ucan capability with wallet sign", async () => {
+    //     const signature = await signMessage({
+    //         message: 'gm wagmi frens',
+    //     })
+    //     expect(signature).not.toBeFalsy()
+    //     console.log(signature)
+    // })
 })
 
 
@@ -67,7 +76,7 @@ class Wallet {
             throw Error(`secret key is not found for ${iss}`)
         }
         const keypair = ucans.EdKeypair.fromSecretKey(secret)
-        const token = await capabilityWithExternalSign(keypair, payload)
+        const token = await capabilityWithExternalKeyPair(keypair, payload)
         //this.store.add(ucans.parse(token))
         return token
     }
@@ -76,7 +85,7 @@ class Wallet {
         return await ucans.verify(token, opts)
     }
 
-    async validate(token:string): Promise<any> {
+    async validate(token: string): Promise<any> {
         return await ucans.validate(token)
     }
 
@@ -103,7 +112,7 @@ describe("pixi flow", () => {
         }
         )
         expect(result.ok).toEqual(true)
-        const result2  = await wallet.validate(token)
+        const result2 = await wallet.validate(token)
         console.log(result2)
         expect(result2).not.toBeUndefined()
     })
