@@ -2,6 +2,7 @@
 import { Ucan } from "../index"
 
 import * as ucans from "@ucans/ucans"
+import { ed25519Plugin } from "@ucans/default-plugins/ed25519/plugin"
 
 const toSign = {
     audience: "did:key:zabcde...", // recipient DID

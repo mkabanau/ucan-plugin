@@ -17,7 +17,7 @@ export class Ucan {
         this.lib = getPluginInjectedApi(defaults)
 
     }
-    capabilityWithExternalKeyPair = async (keypair:ucans.EdKeypair, payload: any): Promise<string> => {
+    async capabilityWithExternalKeyPair(keypair:ucans.EdKeypair, payload: any): Promise<string> {
         payload.issuer = keypair.did()
         const payloadForSign = await ucans.buildPayload(payload)
         const ucan = await this.lib.signWithKeypair(payloadForSign, keypair)
@@ -27,11 +27,11 @@ export class Ucan {
     }
     
     
-    verify = async (token: string, opts?: any): Promise<any> =>{
+    async verify(token: string, opts?: any): Promise<any> {
         return await this.lib.verify(token, opts)
     }
     
-    capabilityWithExternalSignFunc  = async (keypair:ucans.EdKeypair, payload: any): Promise<string> => {
+    async capabilityWithExternalSignFunc(keypair:ucans.EdKeypair, payload: any): Promise<string> {
         payload.issuer = keypair.did()
         const payloadForSign = await ucans.buildPayload(payload)
         const ucan = await this.lib.sign(payloadForSign, keypair.jwtAlg, data => keypair.sign(data))
