@@ -4,8 +4,7 @@ default:
     - npm ci --cache .npm --prefer-offline
     - |
       {
-        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
-        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${GITLAB_PAT}"
+        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/packages/npm/"
         echo "${CI_API_V4_URL#https?}/packages/npm/:_authToken=\${GITLAB_PAT}"
       } | tee -a .npmrc
   cache:
