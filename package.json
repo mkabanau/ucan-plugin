@@ -1,6 +1,6 @@
 {
   "name": "@pixi-wallet/ucan-plugin",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "template for ts projects with ci/cd",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,11 +22,18 @@
       "<rootDir>/node_modules/",
       "<rootDir>/.history/"
     ],
+    "testEnvironment": "node",
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "useESM": true
+      }
+    },
+    "preset": "ts-jest/presets/default-esm"
   },
   "repository": {
     "type": "git",
@@ -58,8 +65,12 @@
     "@pixi-wallet:registry": " https://gitlab.com/api/v4/projects/44901862/packages/npm/"
   },
   "dependencies": {
+    "@pixi-wallet/core": "^0.0.3",
+    "@pixi-wallet/default-plugins": "^0.0.4",
+    "@pixi-wallet/ucans": "^0.0.4",
     "@transmute/universal-wallet": "^0.7.0-unstable.51",
     "@types/node": "^18.15.11",
-    "@ucans/ucans": "^0.11.4"
+    "ethers": "5.7.2",
+    "uint8arrays": "3.0.0"
   }
 }

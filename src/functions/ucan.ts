@@ -1,15 +1,13 @@
-import * as ucans from "@ucans/ucans"
-import {getPluginInjectedApi} from "@ucans/core"
+import {DidKeyPlugin, EdKeypair, buildPayload, encode} from "@pixi-wallet/ucans"
+import {getPluginInjectedApi} from "@pixi-wallet/core"
 
-import { Plugins } from "@ucans/core"
-import { ed25519Plugin } from "@ucans/default-plugins/ed25519/plugin"
-import { p256Plugin } from "@ucans/default-plugins/p256/plugin"
-import { rsaPlugin, rsaOldPlugin } from "@ucans/default-plugins/rsa/plugin"
+import { Plugins } from "@pixi-wallet/core"
+import { ed25519Plugin, rsaPlugin, rsaOldPlugin,p256Plugin } from "@pixi-wallet/default-plugins"
 
 
 export class Ucan {
     lib:any
-    constructor(plugin?:ucans.DidKeyPlugin) {
+    constructor(plugin?:DidKeyPlugin) {
         const defaults = new Plugins(
             [ed25519Plugin, p256Plugin, rsaPlugin, rsaOldPlugin, plugin],
             {},
@@ -17,11 +15,11 @@ export class Ucan {
         this.lib = getPluginInjectedApi(defaults)
 
     }
-    async capabilityWithExternalKeyPair(keypair:ucans.EdKeypair, payload: any): Promise<string> {
+    async capabilityWithExternalKeyPair(keypair:EdKeypair, payload: any): Promise<string> {
         payload.issuer = keypair.did()
-        const payloadForSign = await ucans.buildPayload(payload)
+        const payloadForSign = await buildPayload(payload)
         const ucan = await this.lib.signWithKeypair(payloadForSign, keypair)
-        const token = ucans.encode(ucan) // base64 jwt-formatted auth token
+        const token = encode(ucan) // base64 jwt-formatted auth token
         return token
     
     }
@@ -31,11 +29,11 @@ export class Ucan {
         return await this.lib.verify(token, opts)
     }
     
-    async capabilityWithExternalSignFunc(keypair:ucans.EdKeypair, payload: any): Promise<string> {
+    async capabilityWithExternalSignFunc(keypair:EdKeypair, payload: any): Promise<string> {
         payload.issuer = keypair.did()
-        const payloadForSign = await ucans.buildPayload(payload)
+        const payloadForSign = await buildPayload(payload)
         const ucan = await this.lib.sign(payloadForSign, keypair.jwtAlg, data => keypair.sign(data))
-        const token = ucans.encode(ucan) // base64 jwt-formatted auth token
+        const token = encode(ucan) // base64 jwt-formatted auth token
         return token
     }
 

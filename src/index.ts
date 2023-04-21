@@ -4,6 +4,7 @@ import {Ucan} from './functions'
 
 export * from './functions'
 
+export {Ucan} from './functions/ucan'
 interface UCANPlugin {
   ucan: (keypair:any, payload:any) => Promise<string>;
   verify: (token:string, opts?:any) => Promise<any>
