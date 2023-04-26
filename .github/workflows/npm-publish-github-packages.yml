@@ -18,6 +18,8 @@ jobs:
         with:
           node-version: 16
       - run: npm i
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm build
 
   publish-gpr:
