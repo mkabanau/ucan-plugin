@@ -58,7 +58,7 @@
     "typescript": "^4.8.2"
   },
   "publishConfig": {
-    "registry": "https://gitlab.com/api/v4/projects/44901862/packages/npm/"
+    "@mkabanau:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@mkabanau/core": "^0.11.4-test1",
