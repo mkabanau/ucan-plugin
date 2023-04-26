@@ -20,7 +20,7 @@ jobs:
       - run: npm i
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: npm build
+      - run: npm run build
 
   publish-gpr:
     needs: build
