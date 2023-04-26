@@ -1,8 +1,8 @@
-import {DidKeyPlugin, EdKeypair, buildPayload, encode} from "@pixi-wallet/ucans"
-import {getPluginInjectedApi} from "@pixi-wallet/core"
+import {DidKeyPlugin, EdKeypair, buildPayload, encode} from "@mkabanau/ucans"
+import {getPluginInjectedApi} from "@mkabanau/core"
 
-import { Plugins } from "@pixi-wallet/core"
-import { ed25519Plugin, rsaPlugin, rsaOldPlugin,p256Plugin } from "@pixi-wallet/default-plugins"
+import { Plugins } from "@mkabanau/core"
+import { ed25519Plugin, rsaPlugin, rsaOldPlugin,p256Plugin } from "@mkabanau/default-plugins"
 
 
 export class Ucan {

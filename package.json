@@ -1,6 +1,6 @@
 {
-  "name": "@pixi-wallet/ucan-plugin",
-  "version": "0.0.9",
+  "name": "@mkabanau/ucan-plugin",
+  "version": "0.0.1",
   "description": "template for ts projects with ci/cd",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/pixi-wallet/ucan-plugin.git"
+    "url": "git+https://github.com/mkabanau/ucan-plugin.git"
   },
   "keywords": [
     "ci",
@@ -48,26 +48,22 @@
   "author": "maksim",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/pixi-wallet/ucan-plugin/issues"
+    "url": "https://github.com/mkabanau/ucan-plugin/issues"
   },
-  "homepage": "https://gitlab.com/pixi-wallet/ucan-plugin#readme",
+  "homepage": "https://github.com/mkabanau/ucan-plugin#readme",
   "devDependencies": {
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/gitlab": "^9.4.1",
-    "@semantic-release/npm": "^9.0.1",
     "@types/jest": "^29.0.0",
     "jest": "^28.1.3",
-    "semantic-release": "^19.0.5",
     "ts-jest": "^28.0.8",
     "typescript": "^4.8.2"
   },
   "publishConfig": {
-    "@pixi-wallet:registry": " https://gitlab.com/api/v4/projects/44901862/packages/npm/"
+    "registry": "https://gitlab.com/api/v4/projects/44901862/packages/npm/"
   },
   "dependencies": {
-    "@pixi-wallet/core": "^0.0.3",
-    "@pixi-wallet/default-plugins": "^0.0.4",
-    "@pixi-wallet/ucans": "^0.0.4",
+    "@mkabanau/core": "^0.11.4-test1",
+    "@mkabanau/default-plugins": "^0.11.4-test1",
+    "@mkabanau/ucans": "^0.11.4-test1",
     "@transmute/universal-wallet": "^0.7.0-unstable.51",
     "@types/node": "^18.15.11",
     "ethers": "5.7.2",

@@ -1,7 +1,7 @@
 
 import { Ucan } from "../index"
 
-import {EdKeypair ,StoreI, verify, validate, Store, equalCanDelegate, parse } from "@pixi-wallet/ucans"
+import {EdKeypair ,StoreI, verify, validate, Store, equalCanDelegate, parse } from "@mkabanau/ucans"
 // import { ed25519Plugin } from "@ucans/default-plugins/ed25519/plugin"
 
 import { verifyMessage } from 'ethers/lib/utils'
@@ -26,7 +26,8 @@ const toSign = {
             nb: {scheme:"delegate", hierPart:"test.test.test2"}
         }
     ],
-    proofs: ["test.test.test"]
+    proofs: ["test.test.test"],
+    facts: [{"wtf":{"hello":"friend"}}]
 }
 
 describe("explore ucans", () => {
