@@ -42,8 +42,12 @@ describe("explore ucans", () => {
     test("create ucan capability with sign func", async () => {
         const keypair = await EdKeypair.create({ exportable: true })
         const token = await ucan.capabilityWithExternalSignFunc(keypair, toSign)
-        console.log(token)
+        
+        console.log("token",token)
         expect(token).not.toBeFalsy()
+        let p = parse(token)
+        console.log(p)
+        console.log(JSON.stringify(p.payload.att))
     })
 
     // test("create ucan capability with wallet sign", async () => {
