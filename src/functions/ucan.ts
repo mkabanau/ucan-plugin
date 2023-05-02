@@ -29,7 +29,7 @@ export class Ucan {
         return await this.lib.verify(token, opts)
     }
     
-    async capabilityWithExternalSignFunc(keypair:EdKeypair, payload: any): Promise<string> {
+    async capabilityWithExternalSignFunc(keypair:any, payload: any): Promise<string> {
         payload.issuer = keypair.did()
         const payloadForSign = await buildPayload(payload)
         const ucan = await this.lib.sign(payloadForSign, keypair.jwtAlg, data => keypair.sign(data))

@@ -1,6 +1,6 @@
 {
   "name": "@mkabanau/ucan-plugin",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "template for ts projects with ci/cd",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,8 +9,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "build": "npx tsc",
-    "semantic-release": "semantic-release"
+    "build": "npx tsc"
   },
   "jest": {
     "transform": {
@@ -61,7 +60,7 @@
     "@mkabanau:registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
-    "@mkabanau/core": "^0.11.4-test3",
+    "@mkabanau/core": "^0.11.4-test4",
     "@mkabanau/default-plugins": "^0.11.4-test1",
     "@mkabanau/ucans": "^0.11.4-test1",
     "@transmute/universal-wallet": "^0.7.0-unstable.51",
