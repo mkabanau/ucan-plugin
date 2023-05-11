@@ -2,7 +2,7 @@ import {DidKeyPlugin, EdKeypair, buildPayload, encode} from "@mkabanau/ucans"
 import {getPluginInjectedApi} from "@mkabanau/core"
 
 import { Plugins } from "@mkabanau/core"
-import { ed25519Plugin, rsaPlugin, rsaOldPlugin,p256Plugin } from "@mkabanau/default-plugins"
+import { ed25519Plugin, rsaPlugin, rsaOldPlugin, p256Plugin } from "@mkabanau/default-plugins"
 
 
 export class Ucan {

@@ -30,3 +30,7 @@ export const hasPrefix = (
 ): boolean => {
   return uint8arrays.equals(prefix, prefixedKey.subarray(0, prefix.byteLength))
 }
+
+export function getTimestampInSeconds() {
+  return Math.floor(Date.now() / 1000)
+}
